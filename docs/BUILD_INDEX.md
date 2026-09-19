@@ -6,7 +6,7 @@
 
 Authoritative root: `/Users/meghamsh/Documents/Codex/2026-09-19/new-chat-2/outputs/aoe2-ai-workshop`.
 
-Local checkpoint only; no GitHub remote or push. No Drive publication yet. This is a new project, separate from the user's hotkey editor. Browser preview runs from the authoritative root at `http://127.0.0.1:5173`.
+Published to https://github.com/meghamsh738/Aoe2-AI-editor on branch `codex/ai-workshop-mvp`. Remote was empty before the first push. HTTPS uses the existing GitHub CLI login because SSH authentication was unavailable. No Drive publication yet. This is a new project, separate from the user's hotkey editor. Browser preview runs from the authoritative root at `http://127.0.0.1:5173`.
 
 Design reference: `docs/concept.png` (built-in Image Gen). Detailed comparison, deliberate differences and verification methods: `docs/VERIFICATION.md`. Prompt: `docs/CONCEPT_PROMPT.md`.
 
