@@ -1,6 +1,6 @@
 {
   "name": "aoe2-ai-workshop",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,7 +9,9 @@
     "preview": "vite preview --host 127.0.0.1",
     "test": "tsx --test tests/*.test.ts",
     "export:sample": "tsx scripts/export-sample.ts",
-    "test:browser": "node scripts/browser-check.mjs"
+    "test:browser": "node scripts/browser-check.mjs",
+    "export:adaptive": "tsx scripts/export-adaptive.ts",
+    "test:adaptive-browser": "node scripts/adaptive-browser-check.mjs"
   },
   "dependencies": {
     "react": "^19.2.0",

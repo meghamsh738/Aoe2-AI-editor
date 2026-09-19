@@ -1,0 +1,1933 @@
+{
+  "source": "https://airef.github.io/js/commands.js",
+  "retrieved": "2026-09-19",
+  "sha256": "6fa68f4a4bbc2f4570b9eb8f8fbba9709bcaa925231f4535dd774b07cbeb9e5c",
+  "notice": "Extracted command names, arities and categories only. Does not certify current DE compatibility.",
+  "commands": {
+    "acknowledge-event": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "acknowledge-taunt": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "attack-soldier-count": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "attack-warboat-count": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "build": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "build-forward": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "build-gate": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "building-available": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "building-count": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "building-count-total": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "building-type-count": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "building-type-count-total": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "build-wall": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "buy-commodity": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "can-afford-building": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-afford-complete-wall": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-afford-research": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-afford-unit": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-build": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-build-gate": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-build-gate-with-escrow": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-build-wall": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-build-wall-with-escrow": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-build-with-escrow": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-buy-commodity": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-research": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-research-with-escrow": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-sell-commodity": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-train": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-train-with-escrow": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "cc-add-resource": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "cc-players-building-count": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "cc-players-building-type-count": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "cc-players-unit-count": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "cc-players-unit-type-count": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "chat-local": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-local-to-self": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-local-using-id": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-local-using-range": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-to-all": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-to-allies": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-to-allies-using-id": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-to-allies-using-range": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-to-all-using-id": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-to-all-using-range": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-to-enemies": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-to-enemies-using-id": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-to-enemies-using-range": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-to-player": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-to-player-using-id": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-to-player-using-range": {
+      "arity": 3,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "chat-trace": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "civilian-population": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "civ-selected": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "clear-tribute-memory": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "commodity-buying-price": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "commodity-selling-price": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "current-age": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "current-age-time": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "current-score": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "defend-soldier-count": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "defend-warboat-count": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "delete-building": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "delete-unit": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "difficulty": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "disable-rule": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "disable-timer": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "doctrine": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "dropsite-min-distance": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "enable-rule": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "enable-timer": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "enable-wall-placement": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "escrow-amount": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "event-detected": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "food-amount": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "game-time": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "game-type": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "gate-count": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "generate-random-number": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "goal": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "gold-amount": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "housing-headroom": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "idle-farm-count": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "log": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "log-trace": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "map-size": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "map-type": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "military-population": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "player-computer": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "player-human": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "player-in-game": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "player-number": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "player-resigned": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "player-valid": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "players-building-count": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "players-building-type-count": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "players-civ": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "players-civilian-population": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "players-current-age": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "players-current-age-time": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "players-military-population": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "players-population": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "players-score": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "players-stance": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "players-tribute": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "players-unit-count": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "players-unit-type-count": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "population": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "population-cap": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "population-headroom": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "random-number": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "release-escrow": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "research": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "research-available": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "research-completed": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "resource-found": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "sell-commodity": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "set-difficulty-parameter": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "set-doctrine": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "set-escrow-percentage": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "set-goal": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "set-shared-goal": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "set-signal": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "set-stance": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "set-strategic-number": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "shared-goal": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "soldier-count": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "stance-toward": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "starting-age": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "starting-resources": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "stone-amount": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "strategic-number": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "taunt": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "taunt-detected": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "taunt-using-range": {
+      "arity": 2,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "timer-triggered": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "train": {
+      "arity": 1,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "tribute-to-player": {
+      "arity": 3,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "unit-available": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "unit-count": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "unit-count-total": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "unit-type-count": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "unit-type-count-total": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "victory-condition": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "wall-completed-percentage": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "wall-invisible-percentage": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "warboat-count": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "wood-amount": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "up-add-cost-data": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-add-object-by-id": {
+      "arity": 3,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-add-object-cost": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-add-point": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-add-research-cost": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-allied-goal": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-allied-resource-amount": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-allied-resource-percent": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-allied-sn": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-assign-builders": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-attacker-class": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-bound-point": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-bound-precise-point": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-build": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-build-line": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-building-type-in-town": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-buy-commodity": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-can-build": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-can-build-line": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-can-research": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-can-search": {
+      "arity": 1,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-can-train": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-cc-add-resource": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-cc-send-cheat": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-change-name": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-chat-data-to-all": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-chat-data-to-player": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-chat-data-to-self": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-clean-search": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-compare-const": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-compare-flag": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-compare-goal": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-compare-sn": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-compare-text": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-copy-point": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-create-group": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-cross-tiles": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-defender-count": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-delete-distant-farms": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-delete-idle-units": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-delete-objects": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-disband-group-type": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-drop-resources": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-enemy-buildings-in-town": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-enemy-units-in-town": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-enemy-villagers-in-town": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-filter-distance": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-filter-exclude": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-filter-garrison": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-filter-include": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-filter-range": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-filter-status": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-find-flare": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-find-local": {
+      "arity": 4,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-find-next-player": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-find-player": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-find-player-flare": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-find-remote": {
+      "arity": 4,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-find-resource": {
+      "arity": 4,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-find-status-local": {
+      "arity": 4,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-find-status-remote": {
+      "arity": 4,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-full-reset-search": {
+      "arity": 0,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-gaia-type-count": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-gaia-type-count-total": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-garrison": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-gather-inside": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-attacker-class": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-cost-delta": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-event": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-fact": {
+      "arity": 3,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-get-fact-max": {
+      "arity": 4,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-get-fact-min": {
+      "arity": 4,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-get-fact-sum": {
+      "arity": 4,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-get-focus-fact": {
+      "arity": 3,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-get-group-size": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-guard-state": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-indirect-goal": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-object-data": {
+      "arity": 2,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-get-object-target-data": {
+      "arity": 2,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-get-object-type-data": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-path-distance": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-player-color": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-player-fact": {
+      "arity": 4,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-get-point": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-point-contains": {
+      "arity": 4,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-get-point-distance": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-point-elevation": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-point-terrain": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-point-zone": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-precise-time": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-projectile-player": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-rule-id": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-search-state": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-shared-goal": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-signal": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-target-fact": {
+      "arity": 3,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-get-threat-data": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-timer": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-treaty-data": {
+      "arity": 1,
+      "type": "Action",
+      "version": "DE"
+    },
+    "up-get-upgrade-id": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-victory-data": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-get-victory-limit": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-group-size": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-guard-unit": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-idle-unit-count": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-jump-direct": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-jump-dynamic": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-jump-rule": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-lerp-percent": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-lerp-tiles": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-log-data": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-modify-escrow": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-modify-flag": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-modify-goal": {
+      "arity": 3,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-modify-group-flag": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-modify-sn": {
+      "arity": 3,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-object-data": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-object-target-data": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-object-type-count": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-object-type-count-total": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-path-distance": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-pending-objects": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-pending-placement": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-player-distance": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-players-in-game": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-point-contains": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-point-distance": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-point-elevation": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-point-explored": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-point-terrain": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-point-zone": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-projectile-detected": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-projectile-target": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-release-escrow": {
+      "arity": 0,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-remaining-boar-amount": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-remove-objects": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-request-hunters": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-research": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-research-status": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-reset-attack-now": {
+      "arity": 0,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-reset-building": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-reset-cost-data": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-reset-filters": {
+      "arity": 0,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-reset-group": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-reset-placement": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-reset-scouts": {
+      "arity": 0,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-reset-search": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-reset-target-priorities": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-reset-unit": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-resource-amount": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-resource-percent": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-retask-gatherers": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-retreat-now": {
+      "arity": 0,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-retreat-to": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-sell-commodity": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-send-flare": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-send-scout": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-set-attack-stance": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-set-defense-priority": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-set-event": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-set-group": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-set-indirect-goal": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-set-offense-priority": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-set-placement-data": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-set-precise-target-point": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-set-shared-goal": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-set-signal": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-set-target-by-id": {
+      "arity": 2,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-set-target-object": {
+      "arity": 3,
+      "type": "Fact/Action",
+      "version": "UP"
+    },
+    "up-set-target-point": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-set-timer": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-setup-cost-data": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-store-map-name": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-store-object-name": {
+      "arity": 0,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-store-player-chat": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-store-player-name": {
+      "arity": 1,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-store-tech-name": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-store-text": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-store-type-name": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-target-objects": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-target-point": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-timer-status": {
+      "arity": 3,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-train": {
+      "arity": 3,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-train-site-ready": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-tribute-to-player": {
+      "arity": 4,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-ungarrison": {
+      "arity": 2,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-unit-type-in-town": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "up-update-targets": {
+      "arity": 0,
+      "type": "Action",
+      "version": "UP"
+    },
+    "up-villager-type-in-town": {
+      "arity": 4,
+      "type": "Fact",
+      "version": "UP"
+    },
+    "fe-break-point": {
+      "arity": 4,
+      "type": "Action",
+      "version": "DE"
+    },
+    "fe-cc-effect-amount": {
+      "arity": 4,
+      "type": "Action",
+      "version": "DE"
+    },
+    "fe-cc-effect-percent": {
+      "arity": 4,
+      "type": "Action",
+      "version": "DE"
+    },
+    "fe-exclude-from-attack-group": {
+      "arity": 2,
+      "type": "Action",
+      "version": "DE"
+    },
+    "fe-filter-garrisoned": {
+      "arity": 2,
+      "type": "Action",
+      "version": "DE"
+    },
+    "fe-idle-pasture-count": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "DE"
+    },
+    "fe-set-signal": {
+      "arity": 4,
+      "type": "Action",
+      "version": "DE"
+    },
+    "fe-sub-game-type": {
+      "arity": 2,
+      "type": "Fact",
+      "version": "DE"
+    },
+    "xs-script-call": {
+      "arity": 1,
+      "type": "Fact/Action",
+      "version": "DE"
+    },
+    "defconst": {
+      "arity": 2,
+      "type": "Other",
+      "version": "AoC"
+    },
+    "include": {
+      "arity": 1,
+      "type": "Other",
+      "version": "UP"
+    },
+    "load": {
+      "arity": 1,
+      "type": "Other",
+      "version": "AoC"
+    },
+    "#load-if-defined": {
+      "arity": 1,
+      "type": "Other",
+      "version": "AoC"
+    },
+    "#load-if-not-defined": {
+      "arity": 1,
+      "type": "Other",
+      "version": "AoC"
+    },
+    "load-random": {
+      "arity": 2,
+      "type": "Other",
+      "version": "AoC"
+    },
+    "true": {
+      "arity": 0,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "false": {
+      "arity": 0,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "attack-now": {
+      "arity": 0,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "can-spy": {
+      "arity": 0,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "can-spy-with-escrow": {
+      "arity": 0,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "cheats-enabled": {
+      "arity": 0,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "death-match-game": {
+      "arity": 0,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "disable-self": {
+      "arity": 0,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "do-nothing": {
+      "arity": 0,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "enemy-buildings-in-town": {
+      "arity": 0,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "enemy-captured-relics": {
+      "arity": 0,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "hold-koh-ruin": {
+      "arity": 0,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "hold-relics": {
+      "arity": 0,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "regicide-game": {
+      "arity": 0,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "resign": {
+      "arity": 0,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "set-author-email": {
+      "arity": 0,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "set-author-name": {
+      "arity": 0,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "set-author-version": {
+      "arity": 0,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "sheep-and-forage-too-far": {
+      "arity": 0,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "spy": {
+      "arity": 0,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "town-under-attack": {
+      "arity": 0,
+      "type": "Fact",
+      "version": "AoC"
+    },
+    "trace-fact": {
+      "arity": 0,
+      "type": "Action",
+      "version": "AoC"
+    },
+    "fe-reset-attack-group-exclusion-list": {
+      "arity": 0,
+      "type": "Action",
+      "version": "DE"
+    },
+    "defrule": {
+      "arity": 0,
+      "type": "Other",
+      "version": "AoC"
+    },
+    "#else": {
+      "arity": 0,
+      "type": "Other",
+      "version": "AoC"
+    },
+    "#end-if": {
+      "arity": 0,
+      "type": "Other",
+      "version": "AoC"
+    },
+    "and": {
+      "arity": 2,
+      "type": "Other",
+      "version": "AoC"
+    },
+    "nand": {
+      "arity": 2,
+      "type": "Other",
+      "version": "AoC"
+    },
+    "nor": {
+      "arity": 2,
+      "type": "Other",
+      "version": "AoC"
+    },
+    "not": {
+      "arity": 1,
+      "type": "Other",
+      "version": "AoC"
+    },
+    "or": {
+      "arity": 2,
+      "type": "Other",
+      "version": "AoC"
+    },
+    "xnor": {
+      "arity": 2,
+      "type": "Other",
+      "version": "AoC"
+    },
+    "xor": {
+      "arity": 2,
+      "type": "Other",
+      "version": "AoC"
+    }
+  }
+}
