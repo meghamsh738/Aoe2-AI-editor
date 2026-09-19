@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "name": "Greenwood Archers",
+  "profile": "de-britons-land-feudal-v1",
+  "dark": {
+    "villagers": 22,
+    "resources": {
+      "food": 60,
+      "wood": 40,
+      "gold": 0,
+      "stone": 0
+    }
+  },
+  "feudal": {
+    "villagers": 40,
+    "resources": {
+      "food": 40,
+      "wood": 40,
+      "gold": 20,
+      "stone": 0
+    }
+  },
+  "buildings": {
+    "housingHeadroom": 5,
+    "darkFarms": 6,
+    "feudalFarms": 14,
+    "ranges": 2
+  },
+  "army": {
+    "archers": 24,
+    "attackAt": 12,
+    "attackInterval": 120
+  }
+}
