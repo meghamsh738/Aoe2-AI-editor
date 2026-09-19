@@ -23,7 +23,7 @@ Open http://127.0.0.1:5173. To build: `npm run build`. To test: `npm test`. To c
 4. Save project downloads editable JSON; Open validates and restores it. Undo also reverses imports.
 5. Export downloads a ZIP with matching `.ai` / `.per` files, project JSON, rule-to-setting source map, and installation notes.
 
-The browser saves the current structurally valid project on this device. Invalid input does not replace the previous valid draft. Keep a downloaded project as a portable backup. Clearing browser storage deletes local drafts. No telemetry or third-party requests are made by the production app.
+The browser saves the current structurally valid project on this device. Invalid input does not replace the previous valid draft. A damaged browser draft is backed up before a new draft is saved, with a recovery download available. Keep a downloaded project as a portable backup. Clearing browser storage deletes local drafts. No telemetry or third-party requests are made by the production app.
 
 ## Supported profile and limitations
 

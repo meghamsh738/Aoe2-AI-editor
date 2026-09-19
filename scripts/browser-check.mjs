@@ -56,6 +56,17 @@ for (const section of ['Buildings','Army','Strategy','Testing','Export']) {
 await page.setViewportSize({width:1536,height:1024});
 await page.getByRole('button',{name:'Export',exact:true}).click();
 await page.screenshot({path:`${evidence}/export.png`});
+// Damaged local drafts survive edits and reload, and remain downloadable.
+await page.evaluate(() => localStorage.setItem('ai-workshop.project.v1', '{damaged original draft'));
+await page.reload();
+await expect(page.getByRole('button',{name:'Download recovery copy'})).toBeVisible();
+await page.getByLabel('Villager target',{exact:true}).fill('23');
+await page.reload();
+await expect(page.getByLabel('Villager target',{exact:true})).toHaveValue('23');
+const recoveryWait = page.waitForEvent('download');
+await page.getByRole('button',{name:'Download recovery copy'}).click();
+const recoveryDownload = await recoveryWait;
+assert.equal(await fs.readFile(await recoveryDownload.path(),'utf8'),'{damaged original draft');
 assert.deepEqual(errors,[]);
 await browser.close();
 console.log('PASS: edit, undo/redo, save, valid/invalid imports, actual ZIP contents, export blocking, reload, all mobile sections, desktop/laptop/mobile screenshots, no page errors.');

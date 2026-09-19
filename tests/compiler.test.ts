@@ -78,3 +78,8 @@ test('policy gates distinguish queues, research requests, resources and attack c
   assert.equal(testPolicies(p, feudal)[2].active, true); assert.equal(testPolicies(p, feudal)[3].active, true);
   feudal.gold = 44; feudal.attackTimerReady = false; assert.equal(testPolicies(p, feudal)[2].active, false); assert.equal(testPolicies(p, feudal)[3].active, false);
 });
+test('initial policy situation does not assume the attack timer has elapsed', () => {
+  assert.equal(defaultSituation.attackTimerReady, false);
+  const s = { ...defaultSituation, age: 'feudal' as const, archers: 12 };
+  assert.equal(testPolicies(fresh(), s)[3].active, false);
+});

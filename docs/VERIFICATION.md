@@ -3,7 +3,7 @@
 ## Functional checks
 
 - `npm run build`: TypeScript + production bundle pass. Two harmless upstream Zod annotation warnings are stripped by the bundler.
-- `npm test`: 10 passing tests. Covers strict schema, unsafe names, numeric bounds, semantic conflicts, queued/completed counts, age guards, attack cooldown, rule source maps, independent policy gates and archive contents.
+- `npm test`: 11 passing tests. Covers strict schema, unsafe names, numeric bounds, semantic conflicts, queued/completed counts, age guards, attack cooldown, rule source maps, independent policy gates and archive contents.
 - `node scripts/browser-check.mjs`: real browser edits, undo/redo, project download, valid and invalid imports, actual ZIP download and decompression, invalid export blocking, reload persistence, every mobile section, and page-error check pass.
 - `npm audit --omit=dev --audit-level=high`: no reported production vulnerabilities.
 - IAB background checks: editing, source updates, undo, policy readiness, imports and reload persistence passed. IAB's download event timed out; headless Playwright was used to verify the real ZIP and produce reproducible screenshots. Full-page mobile IAB capture had stitching artifacts; headless capture replaced it.
@@ -29,3 +29,7 @@ The implemented design was visually checked against the concept and faithfully p
 ## Remaining scope limits
 
 One civilization/profile; Feudal-only archers; no native game test, executable installer, cloud publishing, custom rules, later ages or unit upgrades. Policy testing is a limited predicate checker, not a game simulator. See README for native acceptance steps.
+
+## Bounded independent review
+
+One Luna reviewer checked compiler references and import/export/persistence. Fixed the two reported issues: the policy test now starts with an unelapsed attack cooldown; damaged local drafts are backed up before replacement and remain downloadable across reloads. Added a unit regression for timer defaults and a real-browser recovery/download regression.

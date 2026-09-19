@@ -2,7 +2,7 @@
 
 | Version | Branch / implementation commit | Status | Evidence | Validation |
 |---|---|---|---|---|
-| First editor | `codex/ai-workshop-mvp` / `8ae8d6a` | Review-ready experimental editor; native game gate open | `design-review/builds/first-editor/desktop.png`, `laptop.png`, `mobile.png`, `export.png` | Build, 10 unit tests, real-browser workflow and download checks pass; production dependency audit clean |
+| First editor | `codex/ai-workshop-mvp` / `8ae8d6a` | Review-ready experimental editor; native game gate open | `design-review/builds/first-editor/desktop.png`, `laptop.png`, `mobile.png`, `export.png` | Build, 11 unit tests, real-browser workflow and download checks pass; production dependency audit clean |
 
 Authoritative root: `/Users/meghamsh/Documents/Codex/2026-09-19/new-chat-2/outputs/aoe2-ai-workshop`.
 

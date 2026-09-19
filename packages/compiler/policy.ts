@@ -1,6 +1,6 @@
 import type { Project } from './model';
 export interface Situation { age: 'dark' | 'feudal'; villagers: number; queuedVillagers: number; archers: number; queuedArchers: number; food: number; wood: number; gold: number; headroom: number; townCenterIdle: boolean; rangeReady: boolean; agePrerequisites: boolean; researchStarted: boolean; attackTimerReady: boolean }
-export const defaultSituation: Situation = { age: 'dark', villagers: 18, queuedVillagers: 1, archers: 0, queuedArchers: 0, food: 150, wood: 100, gold: 0, headroom: 4, townCenterIdle: false, rangeReady: false, agePrerequisites: true, researchStarted: false, attackTimerReady: true };
+export const defaultSituation: Situation = { age: 'dark', villagers: 18, queuedVillagers: 1, archers: 0, queuedArchers: 0, food: 150, wood: 100, gold: 0, headroom: 4, townCenterIdle: false, rangeReady: false, agePrerequisites: true, researchStarted: false, attackTimerReady: false };
 export function testPolicies(p: Project, s: Situation) {
   const target = p[s.age].villagers;
   return [
