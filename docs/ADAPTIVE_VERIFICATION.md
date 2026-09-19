@@ -21,3 +21,5 @@ The preview interprets the same native rule representation used by the emitter. 
 ## Manual acceptance still required
 
 Use `examples/adaptive/Workshop-Windows-Test-Kit.zip`, then each preset ZIP. Run independent probes first, the ten recorded-seed matches second, and the controlled disruptions. Record build/settings/actual seed, project, script errors, save/replay and observed recovery. A loss is not automatically a functional failure; prohibited spending/actions, parser errors, persistent stalls or competing commands are failures. Unsupported strict geometry and advanced micro remain explicit limitations in the design notes.
+
+Focused re-review confirmed the five repaired native paths and priority/predecessor ordering. The remaining conditional question about Portuguese Imperial prerequisites is resolved by the [official World's Edge advancement guide](https://www.ageofempires.com/learn-to-play/advancing-to-the-next-age-xbox/): one Castle is an alternative to two Castle-age buildings. Portuguese already builds its Castle before requesting Imperial. No additional prerequisite building is needed for that preset.
