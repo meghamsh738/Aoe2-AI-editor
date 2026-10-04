@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "tsc --noEmit && vite build",
+    "build:pages": "tsc --noEmit && vite build --base=/Aoe2-AI-editor/",
     "preview": "vite preview --host 127.0.0.1",
+    "preview:pages": "vite preview --host 127.0.0.1 --base=/Aoe2-AI-editor/",
     "test": "tsx --test tests/*.test.ts",
     "export:sample": "tsx scripts/export-sample.ts",
     "test:browser": "node scripts/browser-check.mjs",

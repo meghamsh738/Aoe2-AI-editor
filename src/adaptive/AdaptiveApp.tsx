@@ -184,7 +184,9 @@ export function AdaptiveApp({
               onChange={(e) => edit({ ...project, name: e.target.value })}
             />
           </label>
-          <span className="status-pill">Native DE: unverified</span>
+          <span className="status-pill">
+            Experimental · Native DE: unverified
+          </span>
           <div className="toolbar-actions">
             <button onClick={undo} disabled={!canUndo}>
               <Undo2 size={18} />

@@ -9,14 +9,29 @@ page.on("pageerror", (error) => errors.push(error.message));
 page.on("console", (message) => {
   if (message.type() === "error") errors.push(message.text());
 });
-const evidence = "design-review/builds/adaptive-editor";
+const evidence =
+  process.env.AI_WORKSHOP_EVIDENCE_DIR ?? "design-review/builds/adaptive-editor";
+const appBaseUrl =
+  process.env.AI_WORKSHOP_BASE_URL ?? "http://127.0.0.1:5173";
 await fs.mkdir(evidence, { recursive: true });
 try {
-  await page.goto("http://127.0.0.1:5173");
+  await page.goto(appBaseUrl);
   assert.match(await page.title(), /AI Workshop/);
   await expect(
     page.getByRole("heading", { name: "Build a strategy that adapts" }),
   ).toBeVisible();
+  await expect(page.locator(".status-pill")).toContainText("Experimental");
+  await expect(page.locator(".status-pill")).toContainText(
+    "Native DE: unverified",
+  );
+  await expect(
+    page.getByRole("button", { name: "Use Britons preset" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Use Portuguese preset" }),
+  ).toBeVisible();
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.screenshot({ path: `${evidence}/desktop.png` });
   await page.getByRole("button", { name: "Use Portuguese preset" }).click();
   await expect(page.getByLabel("Bot name")).toHaveValue(
     "Portuguese Castle Guns",
@@ -30,8 +45,6 @@ try {
     "Portuguese Castle Guns",
   );
   await page.getByRole("button", { name: "Use Britons preset" }).click();
-  await page.evaluate(() => window.scrollTo(0, 0));
-  await page.screenshot({ path: `${evidence}/desktop.png` });
   await page.getByRole("button", { name: "Build order", exact: true }).click();
   await page.getByLabel("Villager target", { exact: true }).fill("24");
   await page.getByRole("button", { name: "Export", exact: true }).click();
@@ -39,6 +52,7 @@ try {
   await expect(
     page.getByRole("button", { name: "Download bot ZIP", exact: true }),
   ).toBeEnabled();
+  await page.screenshot({ path: `${evidence}/export.png` });
   const zipWait = page.waitForEvent("download");
   await page
     .getByRole("button", { name: "Download bot ZIP", exact: true })
