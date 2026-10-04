@@ -1,9 +1,10 @@
 # Build index
 
-Current build: **Adaptive Workshop v2**, implementation commit `bbef3f1`, branch `codex/adaptive-workshop`. Experimental editor ready for Windows acceptance testing; native DE behaviour remains **UNVERIFIED**.
+Current review build: **Adaptive Workshop v2 Pages showcase**, implementation commit `f63d6bf`, branch `codex/adaptive-pages-demo`, [PR #1](https://github.com/meghamsh738/Aoe2-AI-editor/pull/1). Review-ready; deployment awaits merge and GitHub Pages configuration. Native DE behaviour remains **UNVERIFIED**.
 
 | Version | Branch / implementation commit | Status | Evidence | Validation |
 |---|---|---|---|---|
+| Adaptive Workshop v2 Pages showcase | `codex/adaptive-pages-demo` / `f63d6bf` ([PR #1](https://github.com/meghamsh738/Aoe2-AI-editor/pull/1)) | Review-ready; public deployment pending merge and Pages configuration | `design-review/builds/adaptive-pages-f63d6bf/` (desktop, adaptation, export, placement, mobile) | 43 automated tests, Pages production build, project-path browser workflow and five-screen review pass; native game behaviour remains UNVERIFIED |
 | Adaptive Workshop v2 | `codex/adaptive-workshop` / `bbef3f1` | Experimental implementation; Windows acceptance open | `design-review/builds/adaptive-editor/` (including legacy regression views) | 43 automated tests, production build, both browser workflows and regenerated preset ZIPs pass |
 | First editor | `codex/ai-workshop-mvp` / `8ae8d6a` | Review-ready experimental editor; native game gate open | `design-review/builds/first-editor/desktop.png`, `laptop.png`, `mobile.png`, `export.png` | Build, 11 unit tests, real-browser workflow and download checks pass; production dependency audit clean |
 
