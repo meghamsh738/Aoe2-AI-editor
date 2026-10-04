@@ -17,7 +17,7 @@ Open http://127.0.0.1:5173. Use `npm run build` for production, `npm test` for a
 
 ## GitHub Pages showcase
 
-The intended public URL after deployment is [meghamsh738.github.io/Aoe2-AI-editor](https://meghamsh738.github.io/Aoe2-AI-editor/). It becomes live after the Pages workflow is merged into the repository's default branch, `codex/ai-workshop-mvp`, and **Settings → Pages → Build and deployment → Source** is set to **GitHub Actions**. The workflow runs the compiler tests, builds the project-path version, and publishes `dist`. Preview that build locally with `npm run build:pages` followed by `npm run preview:pages -- --port 4173 --strictPort`, then visit http://127.0.0.1:4173/Aoe2-AI-editor/.
+The intended public URL after deployment is [meghamsh738.github.io/Aoe2-AI-editor](https://meghamsh738.github.io/Aoe2-AI-editor/). It becomes live after the Pages workflow is merged into the repository's default branch, `codex/ai-workshop-mvp`, and **Settings → Pages → Build and deployment → Source** is set to **GitHub Actions**. The workflow deploys only after pushes to that branch; it has no manual dispatch trigger. It runs the compiler tests, builds the project-path version, and publishes `dist`. Preview that build locally with `npm run build:pages` followed by `npm run preview:pages -- --port 4173 --strictPort`, then visit http://127.0.0.1:4173/Aoe2-AI-editor/.
 
 The visible Experimental label is deliberate: the browser editor and generated files have not been verified in native AoE II: DE gameplay. The demo is a local-first frontend with no backend or account service.
 
