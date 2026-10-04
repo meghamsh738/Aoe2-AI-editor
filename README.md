@@ -1,62 +1,55 @@
-# AI Workshop — first editor
+# Adaptive AoE II AI Workshop
 
-A local-first visual strategy editor for Age of Empires II: Definitive Edition. React + TypeScript UI with a separate pure TypeScript behavior compiler. No account, backend, AI API, or runtime model is required.
+A local browser editor for native Age of Empires II: Definitive Edition AI scripts. Design build outcomes, phase economies, recovery rules, placement policies and army behaviour without writing scripts. No account, backend or external AI runtime.
 
-**Status: experimental. Native game compatibility and gameplay have not been tested.** The source and editor are usable; the final gameplay acceptance gate needs a Windows DE installation.
+**Experimental: native DE behaviour is unverified.** Browser and compiler checks do not establish that an exported bot works in-game. Windows acceptance testing remains required.
 
 ## Run
 
-Node 22.12+ recommended. From this folder:
+Use Node 22.12+ and run:
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Open http://127.0.0.1:5173. To build: `npm run build`. To test: `npm test`. To create the sample export: `npm run export:sample`.
+Open http://127.0.0.1:5173. Use `npm run build` for production, `npm test` for automated checks, and `npm run export:adaptive` to regenerate both presets and the Windows kit.
 
-## First workflow
+## GitHub Pages showcase
 
-1. Edit Dark and Feudal Age villagers and resource allocations.
-2. Adjust housing, farm and range targets, archer count, and attack timing.
-3. Use Testing to check project conflicts and hypothetical policy gates.
-4. Save project downloads editable JSON; Open validates and restores it. Undo also reverses imports.
-5. Export downloads a ZIP with matching `.ai` / `.per` files, project JSON, rule-to-setting source map, and installation notes.
+The intended public URL after deployment is [meghamsh738.github.io/Aoe2-AI-editor](https://meghamsh738.github.io/Aoe2-AI-editor/). It becomes live after the Pages workflow is merged into the repository's default branch, `codex/ai-workshop-mvp`, and **Settings → Pages → Build and deployment → Source** is set to **GitHub Actions**. The workflow deploys only after pushes to that branch; it has no manual dispatch trigger. It runs the compiler tests, builds the project-path version, and publishes `dist`. Preview that build locally with `npm run build:pages` followed by `npm run preview:pages -- --port 4173 --strictPort`, then visit http://127.0.0.1:4173/Aoe2-AI-editor/.
 
-The browser saves the current structurally valid project on this device. Invalid input does not replace the previous valid draft. A damaged browser draft is backed up before a new draft is saved, with a recovery download available. Keep a downloaded project as a portable backup. Clearing browser storage deletes local drafts. No telemetry or third-party requests are made by the production app.
+The visible Experimental label is deliberate: the browser editor and generated files have not been verified in native AoE II: DE gameplay. The demo is a local-first frontend with no backend or account service.
 
-## Supported profile and limitations
+## Design a bot
 
-Britons, 1v1 land skirmish (e.g. Arabia), standard resources, Dark Age start, 200 population. The bot remains in Feudal Age. Set the civilization and match settings in-game.
+1. Start with Britons ranged development or Portuguese fast-Castle Organ Guns. Both cover Dark Age through a post-Imperial strategy phase.
+2. Edit phase targets and ordered build outcomes. Add bounded recovery responses and permitted alternatives.
+3. Choose placement policies and supported micro settings. Unsupported strict placement constraints block export.
+4. Use Testing for hypothetical decision previews. These interpret compiler rules; they do not simulate the game, terrain or combat.
+5. Save editable JSON or export a ZIP containing native files, source links, the project and Windows test kit.
 
-Includes resource allocations, villager maintenance, housing, camps, mill, farms, Feudal advancement, barracks/ranges, archers, and timer-limited attacks. Native AI routines perform gathering, construction placement, scouting and combat. They require game testing. There are no upgrades, later ages, naval strategies, custom reactions, arbitrary script imports, game simulation or installer.
+The supported target is Arabia-style land 1v1, standard resources, Dark Age start and 200 population. The Portuguese preset is Phosphoru-inspired, not a reproduction of a specific match. Exact wall layouts, freeform blueprints, projectile dodging, advanced monk control and arbitrary script imports are outside this release.
 
-The policy test evaluates four gates independently under user-provided assumptions. It is not a script interpreter or a game engine. It does not predict economic efficiency, spend order, pathfinding or wins. Attack threshold counts all existing archers, including attacking ones; it is not an exact wave size. Housing has a 25-second request cooldown, not a completed-foundation guarantee. Feudal research request state waits for age completion; cancellation recovery is a future limitation.
+## Compatibility and local recovery
 
-## Code map
+The original version-1 editor and compiler remain available. Upgrade explicitly creates a version-2 copy and preserves the original draft. Unknown future versions are rejected. Each editor has separate local history and draft storage; damaged drafts can be downloaded before replacement. Keep JSON downloads as portable backups: clearing browser storage removes local drafts.
 
-- `packages/compiler/model.ts`: versioned project and strict validation.
-- `packages/compiler/index.ts`: behavior rules, native emitter, source map, export file contract.
-- `packages/compiler/policy.ts`: explicitly limited hypothetical policy checker.
-- `src/`: editor, persistence/history, import and ZIP download.
-- `tests/`: compiler/input/export/policy regression checks.
-- `examples/`: ready-to-open sample project and experimental native export.
-- `docs/BUILD_INDEX.md`: build and browser evidence.
+## Verification
 
-## Research and reuse decision
+`npm test` checks model validation, native command signatures, shared-rule previews, recovery and export contracts. With the development server running, `npm run test:browser` and `npm run test:adaptive-browser` check real browser editing, downloads, imports, history, recovery and responsive layouts.
 
-Inspected on 2026-09-19:
+The generated Windows kit contains independent command probes, controlled disruption instructions and five requested Arabia seeds per preset. Return the exact game build, exported project, settings and actual seed, script errors, replay/save and observations. All native results start as NOT RUN; there is no claimed win-rate target.
 
-- [AoE2DE_AIBuilder](https://github.com/JackkelDragon/AoE2DE_AIBuilder): MIT Python form generator, last push January 2023. Useful form-to-script precedent; campaign-oriented, not a random-map foundation. Not a dependency.
-- [aoe2-aiscript](https://github.com/Jvinniec/aoe2-aiscript): GPL-3.0 VS Code / TypeScript tooling, last push March 2022. Useful typed-command precedent; experimental error detection and license coupling make direct incorporation unsuitable for this MVP. No code or catalog copied.
-- [aoe2techtree](https://github.com/SiegeEngineers/aoe2techtree): MIT web application, last push September 2026. Useful future versioned game-data adapter. Artwork has separate rights; neither artwork nor bulk data is redistributed here.
-- [AIREf](https://airef.github.io/): checked command signatures, queued versus completed counts, strategic-number behavior, and timers. Reference only, not bundled documentation.
-- [React](https://react.dev/learn), [Vite](https://vite.dev/guide/), [fflate](https://github.com/101arrowz/fflate), and [Zod](https://zod.dev/): standard dependencies; versions are locked in package-lock.json.
+## Code and evidence
 
-The compiler is an original narrow implementation. Public availability was not treated as permission to copy other AI scripts. Input is strictly validated; names cannot become file paths or script statements; no custom-code execution or filesystem installation is exposed. Dependency audit is a useful check, not a security certification.
+- `packages/compiler/v2/`: versioned model, reviewed narrow catalog, shared native rule representation, compiler and decision-preview interpreter.
+- `packages/compiler/`: preserved version-1 compiler and policy adapter.
+- `src/adaptive/`: authoring, persistence, previews and test-kit generation.
+- [Design and native limitations](docs/ADAPTIVE_DESIGN.md)
+- [Build index](docs/BUILD_INDEX.md)
+- `examples/adaptive/`: generated projects, bot ZIPs and Windows kit.
 
-## Next native acceptance gate
-
-Use the included installation notes. Record exact DE build, map/seed, settings, opening duration, errors, and observed gathering/housing/age advancement/archer production/attacks. Check loss replacement. Do not label exports compatible until this passes. Expand civilization/unit catalog and reactions after this evidence.
+Command references come from [AIREf](https://airef.github.io/). Rehoboam, Immortal and Barbarian were evaluated as references, but no reusable licensed component was verified and no donor code was copied. Dependencies are locked in package-lock.json.
 
 Age of Empires II belongs to Microsoft. This independent editor is not affiliated with or endorsed by Microsoft.

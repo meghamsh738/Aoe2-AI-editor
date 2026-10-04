@@ -1,0 +1,892 @@
+{
+  "schemaVersion": 2,
+  "name": "Portuguese Castle Guns",
+  "civilization": "portuguese",
+  "scenario": {
+    "mapStyle": "arabia-1v1",
+    "playerCount": 2,
+    "resources": "standard",
+    "startingAge": "dark",
+    "populationLimit": 200
+  },
+  "phases": {
+    "dark": {
+      "villagers": 21,
+      "resources": {
+        "food": 50,
+        "wood": 40,
+        "gold": 10,
+        "stone": 0
+      }
+    },
+    "feudal": {
+      "villagers": 36,
+      "resources": {
+        "food": 40,
+        "wood": 25,
+        "gold": 20,
+        "stone": 15
+      }
+    },
+    "castle": {
+      "villagers": 58,
+      "resources": {
+        "food": 25,
+        "wood": 25,
+        "gold": 20,
+        "stone": 30
+      }
+    },
+    "imperial": {
+      "villagers": 88,
+      "resources": {
+        "food": 25,
+        "wood": 30,
+        "gold": 25,
+        "stone": 20
+      }
+    },
+    "postImperial": {
+      "villagers": 120,
+      "resources": {
+        "food": 25,
+        "wood": 35,
+        "gold": 25,
+        "stone": 15
+      },
+      "milestone": "post-imperial-sustain"
+    }
+  },
+  "steps": [
+    {
+      "id": "lumber-camp",
+      "label": "Secure the first woodline",
+      "phase": "dark",
+      "priority": 95,
+      "enabled": true,
+      "kind": "build",
+      "building": "lumber-camp",
+      "count": 1,
+      "placementId": "wood-camp"
+    },
+    {
+      "id": "mill",
+      "label": "Prepare food income",
+      "phase": "dark",
+      "priority": 90,
+      "enabled": true,
+      "kind": "build",
+      "building": "mill",
+      "count": 1
+    },
+    {
+      "id": "loom",
+      "label": "Research Loom",
+      "phase": "dark",
+      "priority": 82,
+      "enabled": true,
+      "kind": "research",
+      "research": "loom"
+    },
+    {
+      "id": "feudal-age",
+      "label": "Reach Feudal Age",
+      "phase": "dark",
+      "priority": 100,
+      "enabled": true,
+      "kind": "research",
+      "research": "feudal-age"
+    },
+    {
+      "id": "market",
+      "label": "Open the fast-Castle market",
+      "phase": "feudal",
+      "priority": 96,
+      "enabled": true,
+      "kind": "build",
+      "building": "market",
+      "count": 1
+    },
+    {
+      "id": "blacksmith",
+      "label": "Open the fast-Castle blacksmith",
+      "phase": "feudal",
+      "priority": 94,
+      "enabled": true,
+      "kind": "build",
+      "building": "blacksmith",
+      "count": 1
+    },
+    {
+      "id": "castle-age",
+      "label": "Reach Castle Age quickly",
+      "phase": "feudal",
+      "priority": 100,
+      "enabled": true,
+      "kind": "research",
+      "research": "castle-age"
+    },
+    {
+      "id": "castle",
+      "label": "Secure the Organ Gun production castle",
+      "phase": "castle",
+      "priority": 98,
+      "enabled": true,
+      "kind": "build",
+      "building": "castle",
+      "count": 1,
+      "placementId": "castle-defense"
+    },
+    {
+      "id": "organ-guns",
+      "label": "Build the Organ Gun core",
+      "phase": "castle",
+      "priority": 98,
+      "enabled": true,
+      "kind": "train",
+      "unit": "organ-gun",
+      "count": 12,
+      "productionBuilding": "castle"
+    },
+    {
+      "id": "castle-barracks",
+      "label": "Add support production",
+      "phase": "castle",
+      "priority": 82,
+      "enabled": true,
+      "kind": "build",
+      "building": "barracks",
+      "count": 1
+    },
+    {
+      "id": "castle-pikeman",
+      "label": "Upgrade spear support",
+      "phase": "castle",
+      "priority": 80,
+      "enabled": true,
+      "kind": "research",
+      "research": "ri-pikeman"
+    },
+    {
+      "id": "castle-support",
+      "label": "Add pike support",
+      "phase": "castle",
+      "priority": 78,
+      "enabled": true,
+      "kind": "train",
+      "unit": "pikeman",
+      "count": 8,
+      "productionBuilding": "barracks"
+    },
+    {
+      "id": "imperial-age",
+      "label": "Reach Imperial Age",
+      "phase": "castle",
+      "priority": 75,
+      "enabled": true,
+      "kind": "research",
+      "research": "imperial-age"
+    },
+    {
+      "id": "imperial-university",
+      "label": "Open Imperial technologies",
+      "phase": "imperial",
+      "priority": 90,
+      "enabled": true,
+      "kind": "build",
+      "building": "university",
+      "count": 1
+    },
+    {
+      "id": "imperial-chemistry",
+      "label": "Improve gunpowder damage",
+      "phase": "imperial",
+      "priority": 88,
+      "enabled": true,
+      "kind": "research",
+      "research": "ri-chemistry"
+    },
+    {
+      "id": "imperial-guns",
+      "label": "Maintain the Organ Gun army",
+      "phase": "imperial",
+      "priority": 96,
+      "enabled": true,
+      "kind": "train",
+      "unit": "organ-gun",
+      "count": 35,
+      "productionBuilding": "castle"
+    },
+    {
+      "id": "fallback-range",
+      "label": "Optional archer fallback range",
+      "phase": "castle",
+      "priority": 55,
+      "enabled": false,
+      "kind": "build",
+      "building": "archery-range",
+      "count": 1,
+      "placementId": "forward-range"
+    },
+    {
+      "id": "fallback-archers",
+      "label": "Optional archer fallback force while castle production is unavailable",
+      "phase": "castle",
+      "priority": 54,
+      "enabled": false,
+      "kind": "train",
+      "unit": "archer",
+      "count": 16,
+      "productionBuilding": "archery-range",
+      "whileBuildingMissing": "castle"
+    },
+    {
+      "id": "post-imperial",
+      "label": "Enter post-Imperial sustain phase",
+      "phase": "postImperial",
+      "priority": 50,
+      "enabled": true,
+      "kind": "milestone",
+      "milestone": "post-imperial-sustain"
+    },
+    {
+      "id": "post-trebuchets",
+      "label": "Support the guns with siege",
+      "phase": "postImperial",
+      "priority": 65,
+      "enabled": true,
+      "kind": "train",
+      "unit": "trebuchet",
+      "count": 4,
+      "productionBuilding": "castle"
+    }
+  ],
+  "responses": [
+    {
+      "id": "repair-housing",
+      "label": "Restore housing before the next queue",
+      "enabled": true,
+      "priority": 95,
+      "trigger": {
+        "kind": "housing-shortage",
+        "threshold": 2,
+        "sustainedSeconds": 5,
+        "observation": "observed"
+      },
+      "actions": [
+        {
+          "priority": 100,
+          "kind": "build",
+          "building": "house",
+          "count": 1,
+          "placementId": "home-housing"
+        }
+      ],
+      "recovery": {
+        "kind": "threshold",
+        "threshold": 4
+      },
+      "cooldownSeconds": 25,
+      "limits": {
+        "maxDurationSeconds": 120,
+        "maxWorkers": 2,
+        "emergencySpend": {
+          "food": 0,
+          "wood": 100,
+          "gold": 0,
+          "stone": 0
+        },
+        "allowPivot": false
+      }
+    },
+    {
+      "id": "defend-raid",
+      "label": "Defend the town when it is attacked",
+      "enabled": true,
+      "priority": 100,
+      "trigger": {
+        "kind": "raid",
+        "sustainedSeconds": 2,
+        "observation": "observed"
+      },
+      "actions": [
+        {
+          "priority": 100,
+          "kind": "defend",
+          "unit": "archer"
+        },
+        {
+          "priority": 90,
+          "kind": "retreat",
+          "unit": "archer"
+        }
+      ],
+      "recovery": {
+        "kind": "timeout",
+        "afterSeconds": 30
+      },
+      "cooldownSeconds": 45,
+      "limits": {
+        "maxDurationSeconds": 90,
+        "maxWorkers": 0,
+        "emergencySpend": {
+          "food": 0,
+          "wood": 0,
+          "gold": 0,
+          "stone": 0
+        },
+        "allowPivot": false
+      }
+    },
+    {
+      "id": "answer-forward-defense",
+      "label": "Answer a forward building with defense",
+      "enabled": true,
+      "priority": 88,
+      "trigger": {
+        "kind": "forward-defense",
+        "threshold": 1,
+        "sustainedSeconds": 5,
+        "observation": "observed"
+      },
+      "actions": [
+        {
+          "priority": 90,
+          "kind": "build",
+          "building": "watch-tower",
+          "count": 1,
+          "placementId": "defensive-tower"
+        },
+        {
+          "priority": 80,
+          "kind": "defend",
+          "unit": "spearman-line"
+        }
+      ],
+      "recovery": {
+        "kind": "timeout",
+        "afterSeconds": 60
+      },
+      "cooldownSeconds": 90,
+      "limits": {
+        "maxDurationSeconds": 180,
+        "maxWorkers": 3,
+        "emergencySpend": {
+          "food": 0,
+          "wood": 100,
+          "gold": 0,
+          "stone": 150
+        },
+        "allowPivot": false
+      }
+    },
+    {
+      "id": "recover-placement",
+      "label": "Retry a blocked foundation with the next fallback",
+      "enabled": true,
+      "priority": 82,
+      "trigger": {
+        "kind": "placement-blocked",
+        "threshold": 1,
+        "sustainedSeconds": 10,
+        "observation": "observed"
+      },
+      "actions": [
+        {
+          "priority": 80,
+          "kind": "reset-placement",
+          "building": "archery-range"
+        }
+      ],
+      "recovery": {
+        "kind": "timeout",
+        "afterSeconds": 40
+      },
+      "cooldownSeconds": 60,
+      "limits": {
+        "maxDurationSeconds": 120,
+        "maxWorkers": 2,
+        "emergencySpend": {
+          "food": 0,
+          "wood": 0,
+          "gold": 0,
+          "stone": 0
+        },
+        "allowPivot": false
+      }
+    },
+    {
+      "id": "answer-counter-unit",
+      "label": "Protect Organ Guns from cavalry",
+      "enabled": true,
+      "priority": 78,
+      "trigger": {
+        "kind": "counter-army",
+        "threshold": 2,
+        "unit": "knight-line",
+        "sustainedSeconds": 8,
+        "observation": "either"
+      },
+      "actions": [
+        {
+          "priority": 85,
+          "kind": "train",
+          "unit": "pikeman",
+          "count": 4
+        },
+        {
+          "priority": 95,
+          "kind": "retreat",
+          "unit": "organ-gun"
+        }
+      ],
+      "recovery": {
+        "kind": "timeout",
+        "afterSeconds": 60
+      },
+      "cooldownSeconds": 90,
+      "limits": {
+        "maxDurationSeconds": 180,
+        "maxWorkers": 4,
+        "emergencySpend": {
+          "food": 200,
+          "wood": 120,
+          "gold": 0,
+          "stone": 0
+        },
+        "allowPivot": false
+      }
+    },
+    {
+      "id": "foundation-lost",
+      "label": "Rebuild a lost production foundation",
+      "enabled": false,
+      "priority": 80,
+      "trigger": {
+        "kind": "foundation-lost",
+        "sustainedSeconds": 5,
+        "observation": "observed"
+      },
+      "actions": [
+        {
+          "priority": 80,
+          "kind": "build",
+          "building": "castle",
+          "count": 1,
+          "placementId": "castle-defense"
+        }
+      ],
+      "recovery": {
+        "kind": "timeout",
+        "afterSeconds": 45
+      },
+      "cooldownSeconds": 90,
+      "limits": {
+        "maxDurationSeconds": 150,
+        "maxWorkers": 3,
+        "emergencySpend": {
+          "food": 0,
+          "wood": 0,
+          "gold": 0,
+          "stone": 650
+        },
+        "allowPivot": false
+      }
+    },
+    {
+      "id": "resource-depleted",
+      "label": "Shift the economy after observed gold depletion",
+      "enabled": false,
+      "priority": 68,
+      "trigger": {
+        "kind": "resource-depleted",
+        "threshold": 2,
+        "resource": "gold",
+        "sustainedSeconds": 20,
+        "observation": "observed"
+      },
+      "actions": [
+        {
+          "priority": 60,
+          "kind": "allocate",
+          "resources": {
+            "food": 40,
+            "wood": 45,
+            "gold": 10,
+            "stone": 5
+          }
+        }
+      ],
+      "recovery": {
+        "kind": "timeout",
+        "afterSeconds": 90
+      },
+      "cooldownSeconds": 180,
+      "limits": {
+        "maxDurationSeconds": 180,
+        "maxWorkers": 0,
+        "emergencySpend": {
+          "food": 0,
+          "wood": 0,
+          "gold": 0,
+          "stone": 0
+        },
+        "allowPivot": false
+      }
+    },
+    {
+      "id": "builder-lost",
+      "label": "Reassign construction after inferred builder loss",
+      "enabled": false,
+      "priority": 75,
+      "trigger": {
+        "kind": "builder-lost",
+        "sustainedSeconds": 5,
+        "observation": "observed"
+      },
+      "actions": [
+        {
+          "priority": 50,
+          "kind": "allocate",
+          "resources": {
+            "food": 50,
+            "wood": 30,
+            "gold": 10,
+            "stone": 10
+          }
+        }
+      ],
+      "recovery": {
+        "kind": "timeout",
+        "afterSeconds": 30
+      },
+      "cooldownSeconds": 60,
+      "limits": {
+        "maxDurationSeconds": 90,
+        "maxWorkers": 2,
+        "emergencySpend": {
+          "food": 0,
+          "wood": 0,
+          "gold": 0,
+          "stone": 0
+        },
+        "allowPivot": false
+      }
+    },
+    {
+      "id": "resource-threatened",
+      "label": "Protect a threatened resource (use raid response for native export)",
+      "enabled": false,
+      "priority": 70,
+      "trigger": {
+        "kind": "resource-threatened",
+        "resource": "gold",
+        "sustainedSeconds": 8,
+        "observation": "observed"
+      },
+      "actions": [
+        {
+          "priority": 60,
+          "kind": "defend",
+          "unit": "spearman-line"
+        }
+      ],
+      "recovery": {
+        "kind": "timeout",
+        "afterSeconds": 45
+      },
+      "cooldownSeconds": 90,
+      "limits": {
+        "maxDurationSeconds": 120,
+        "maxWorkers": 0,
+        "emergencySpend": {
+          "food": 0,
+          "wood": 0,
+          "gold": 0,
+          "stone": 0
+        },
+        "allowPivot": false
+      }
+    },
+    {
+      "id": "development-stalled",
+      "label": "Recover a stalled development plan",
+      "enabled": true,
+      "priority": 84,
+      "trigger": {
+        "kind": "development-stalled",
+        "sustainedSeconds": 30,
+        "observation": "either"
+      },
+      "actions": [
+        {
+          "priority": 70,
+          "kind": "allocate",
+          "resources": {
+            "food": 35,
+            "wood": 30,
+            "gold": 20,
+            "stone": 15
+          }
+        },
+        {
+          "priority": 60,
+          "kind": "pivot",
+          "stepIds": [
+            "castle"
+          ]
+        }
+      ],
+      "recovery": {
+        "kind": "timeout",
+        "afterSeconds": 120
+      },
+      "cooldownSeconds": 180,
+      "limits": {
+        "maxDurationSeconds": 240,
+        "maxWorkers": 6,
+        "emergencySpend": {
+          "food": 100,
+          "wood": 100,
+          "gold": 50,
+          "stone": 0
+        },
+        "allowPivot": true
+      }
+    },
+    {
+      "id": "castle-unavailable-archer-fallback",
+      "label": "Enable the archer fallback after an inferred castle-production stall",
+      "enabled": false,
+      "priority": 76,
+      "trigger": {
+        "kind": "foundation-lost",
+        "sustainedSeconds": 12,
+        "observation": "observed"
+      },
+      "actions": [
+        {
+          "priority": 80,
+          "kind": "pivot",
+          "stepIds": [
+            "fallback-range",
+            "fallback-archers"
+          ]
+        }
+      ],
+      "recovery": {
+        "kind": "timeout",
+        "afterSeconds": 120
+      },
+      "cooldownSeconds": 180,
+      "limits": {
+        "maxDurationSeconds": 240,
+        "maxWorkers": 4,
+        "emergencySpend": {
+          "food": 0,
+          "wood": 175,
+          "gold": 0,
+          "stone": 0
+        },
+        "allowPivot": true
+      }
+    }
+  ],
+  "placements": [
+    {
+      "id": "home-housing",
+      "label": "Protect housing near the town center",
+      "building": "house",
+      "anchor": "home-town-center",
+      "direction": "around",
+      "distance": 0,
+      "spacing": 0,
+      "strict": false,
+      "observedOnly": false,
+      "fallback": [
+        {
+          "anchor": "home-town-center",
+          "direction": "around",
+          "distance": 0,
+          "spacing": 0
+        },
+        {
+          "anchor": "production",
+          "direction": "around",
+          "distance": 0,
+          "spacing": 0
+        }
+      ]
+    },
+    {
+      "id": "wood-camp",
+      "label": "Keep the first lumber camp close to home",
+      "building": "lumber-camp",
+      "anchor": "home-town-center",
+      "direction": "around",
+      "distance": 0,
+      "spacing": 0,
+      "strict": false,
+      "observedOnly": false,
+      "fallback": [
+        {
+          "anchor": "home-town-center",
+          "direction": "around",
+          "distance": 0,
+          "spacing": 0
+        },
+        {
+          "anchor": "production",
+          "direction": "around",
+          "distance": 0,
+          "spacing": 0
+        }
+      ]
+    },
+    {
+      "id": "forward-range",
+      "label": "Place a pressure range toward the discovered enemy",
+      "building": "archery-range",
+      "anchor": "forward-pressure",
+      "direction": "toward-enemy",
+      "distance": 8,
+      "spacing": 0,
+      "strict": false,
+      "observedOnly": true,
+      "fallback": [
+        {
+          "anchor": "production",
+          "direction": "around",
+          "distance": 0,
+          "spacing": 0
+        },
+        {
+          "anchor": "home-town-center",
+          "direction": "around",
+          "distance": 0,
+          "spacing": 0
+        }
+      ]
+    },
+    {
+      "id": "defensive-tower",
+      "label": "Protect the threatened town edge",
+      "building": "watch-tower",
+      "anchor": "home-town-center",
+      "direction": "toward-enemy",
+      "distance": 10,
+      "spacing": 0,
+      "strict": false,
+      "observedOnly": true,
+      "fallback": [
+        {
+          "anchor": "home-town-center",
+          "direction": "around",
+          "distance": 0,
+          "spacing": 0
+        },
+        {
+          "anchor": "production",
+          "direction": "around",
+          "distance": 0,
+          "spacing": 0
+        }
+      ]
+    },
+    {
+      "id": "castle-defense",
+      "label": "Put the castle between home and the pressure",
+      "building": "castle",
+      "anchor": "home-town-center",
+      "direction": "toward-enemy",
+      "distance": 12,
+      "spacing": 0,
+      "strict": false,
+      "observedOnly": true,
+      "fallback": [
+        {
+          "anchor": "home-town-center",
+          "direction": "around",
+          "distance": 0,
+          "spacing": 0
+        },
+        {
+          "anchor": "production",
+          "direction": "around",
+          "distance": 0,
+          "spacing": 0
+        }
+      ]
+    }
+  ],
+  "micro": {
+    "ownership": "exclusive",
+    "globalReactionIntervalSeconds": 4,
+    "ranged": {
+      "enabled": true,
+      "aggression": "balanced",
+      "targetPriorities": [
+        "ranged",
+        "siege",
+        "buildings"
+      ],
+      "retreatHealthPercent": 25,
+      "regroupSeconds": 8,
+      "searchIntervalSeconds": 4,
+      "groupSize": 20,
+      "observedOnly": true
+    },
+    "melee": {
+      "enabled": false,
+      "aggression": "balanced",
+      "targetPriorities": [
+        "closest",
+        "highest-threat"
+      ],
+      "retreatHealthPercent": 25,
+      "regroupSeconds": 10,
+      "searchIntervalSeconds": 5,
+      "groupSize": 20,
+      "observedOnly": true
+    },
+    "siege": {
+      "enabled": true,
+      "aggression": "cautious",
+      "targetPriorities": [
+        "buildings",
+        "siege"
+      ],
+      "retreatHealthPercent": 30,
+      "regroupSeconds": 12,
+      "searchIntervalSeconds": 6,
+      "groupSize": 8,
+      "observedOnly": true
+    },
+    "screening": {
+      "enabled": true,
+      "aggression": "balanced",
+      "targetPriorities": [
+        "ranged",
+        "siege"
+      ],
+      "retreatHealthPercent": 30,
+      "regroupSeconds": 8,
+      "searchIntervalSeconds": 5,
+      "groupSize": 12,
+      "observedOnly": true
+    }
+  },
+  "limits": {
+    "allowPivots": true,
+    "allowEmergencySpend": true,
+    "maxEmergencySpend": {
+      "food": 300,
+      "wood": 300,
+      "gold": 200,
+      "stone": 200
+    },
+    "maxConcurrentResponses": 2,
+    "minimumResponseSeconds": 10,
+    "strictPlacement": false
+  }
+}
