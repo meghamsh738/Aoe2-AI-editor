@@ -3,6 +3,19 @@ const rule = (conditions: string[], actions: string[]) =>
   `(defrule\n${conditions.map((x) => `    ${x}`).join("\n")}\n=>\n${actions.map((x) => `    ${x}`).join("\n")}\n)\n`;
 const probe = (name: string, body: string) =>
   `; AI Workshop: ${name}\n; Native DE status: UNVERIFIED. Run only in the documented test scenario.\n${body}`;
+const csv = (rows: (string | number)[][]) =>
+  rows.map((row) => row.map((cell) => {
+    const text = String(cell);
+    return /[",\r\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+  }).join(",")).join("\n");
+
+export const nativeProbeChecks = [
+  ["load", "Workshop Load Probe", "Select this AI in a controlled single-player scenario; inspect its own chat output.", "Loads without parser errors and reports Workshop: load probe started once."],
+  ["allocation", "Workshop Allocation Probe", "Provide villagers, food and wood accessible to player 1.", "Food and wood allocation responds to the 50/50 targets; no parser errors."],
+  ["placement", "Workshop Placement Probe", "Provide a player-1 town center, villagers and wood with open space nearby.", "House construction starts without a queue flood; record actual placement, including native search expansion."],
+  ["observation", "Workshop Observation Probe", "Place player-2 archers outside sight, reveal them, then remove sight. The probe does not scout.", "No report before a sighting; a local report follows a seen archer. Record how long remembered sightings persist."],
+  ["control", "Workshop Control Probe", "Provide eight player-1 archers on an accessible map.", "Archers move toward map center without competing native group orders."],
+] as const;
 export const nativeScenarios = [
   [
     "load",
@@ -104,6 +117,13 @@ export const nativeScenarios = [
 export function nativeKitFiles(): Record<string, string> {
   const files: Record<string, string> = {};
   const probes = {
+    "Workshop Load Probe": probe(
+      "Load",
+      rule(["(true)"], [
+        '(chat-local-to-self "Workshop: load probe started.")',
+        "(disable-self)",
+      ]),
+    ),
     "Workshop Allocation Probe": probe(
       "Allocation",
       rule(
@@ -189,30 +209,46 @@ export function nativeKitFiles(): Record<string, string> {
     files[`probes/${name}.ai`] = "";
     files[`probes/${name}.per`] = text;
   }
-  files["SCENARIOS.csv"] =
-    "id,title,setup,expected,result,notes\n" +
-    nativeScenarios
-      .map(
-        (row) =>
-          row.map((cell) => JSON.stringify(cell)).join(",") + ",NOT RUN,",
-      )
-      .join("\n");
-  files["MATCHES.csv"] =
-    "preset,requested_seed,actual_seed,game_build,opponent,result,replay,script_errors,notes\n" +
-    ["Britons", "Portuguese"]
-      .flatMap((civ) =>
-        [1001, 1002, 1003, 1004, 1005].map(
-          (seed) => `${civ},${seed},,,,NOT RUN,,,`,
-        ),
-      )
-      .join("\n");
+  files["BASELINE.csv"] = csv([
+    ["run_id", "setup", "expected", "status", "record_file", "notes"],
+    ["baseline", "Unmodified single-player 1v1; play at least 15 minutes with recording enabled, save, reload and open the recording.", "Game runs, save reloads and recording opens.", "NOT RUN", "", ""],
+  ]);
+  files["PROBES.csv"] = csv([
+    ["run_id", "ai_name", "setup", "expected", "status", "record_file", "notes"],
+    ...nativeProbeChecks.map(([id, name, setup, expected]) =>
+      [`probe-${id}`, name, setup, expected, "NOT RUN", "", ""]),
+  ]);
+  files["SCENARIOS.csv"] = csv([
+    ["run_id", "preset", "id", "title", "setup", "expected", "status", "record_file", "notes"],
+    ...["Britons", "Portuguese"].flatMap((civ) => nativeScenarios
+      .filter(([id]) => civ === "Portuguese" || id !== "castle-loss")
+      .map(([id, title, setup, expected]) =>
+        [`${civ.toLowerCase()}-${id}`, civ, id, title, setup, expected, "NOT RUN", "", ""])),
+  ]);
+  files["MATCHES.csv"] = csv([
+    ["run_id", "preset", "requested_seed", "actual_seed", "status", "match_outcome", "record_file", "notes"],
+    ...["Britons", "Portuguese"].flatMap((civ) =>
+      [1001, 1002, 1003, 1004, 1005].map((seed) =>
+        [`${civ.toLowerCase()}-seed-${seed}`, civ, seed, "", "NOT RUN", "", "", ""])),
+  ]);
   files["run-record.json"] = JSON.stringify(
     {
       status: "NOT RUN",
+      runId: "",
+      testType: "",
+      platform: "",
+      osVersion: "",
       gameBuild: "",
       workshopCommit: "",
       preset: "",
+      projectVersion: "",
+      projectFile: "",
       projectSha256: "",
+      scriptFile: "",
+      scriptSha256: "",
+      verifiedAiFolder: "",
+      scenarioFile: "",
+      interventionGameTime: "",
       map: "Arabia",
       requestedSeed: "",
       actualSeed: "",
@@ -226,18 +262,43 @@ export function nativeKitFiles(): Record<string, string> {
       cheats: false,
       opponent: "",
       replay: "",
+      save: "",
+      errorLog: "",
+      expected: "",
+      actual: "",
+      matchOutcome: "",
       errors: [],
       observations: [],
-      scenarios: nativeScenarios.map(([id]) => ({
-        id,
-        result: "NOT RUN",
-        notes: "",
-      })),
     },
     null,
     2,
   );
   files["START-HERE.txt"] =
-    `AI WORKSHOP WINDOWS TEST KIT\nSTATUS: NOT RUN — no game build is certified.\n\n1. Keep the exported project and matching .ai/.per together. Record the Workshop commit and DE build from the game UI. Back up same-name files before copying into your game AI folder (commonly resources/_common/ai inside the DE installation; Steam: Manage > Browse local files). Do not overwrite other bots. Restart DE if the bot does not appear.\n2. Probes are independent AIs, not opponents capable of playing a match. Run separately in a controlled scenario as player 1. Use player 2 for the enemy. Start with the Allocation probe and inspect gathering. For Placement, supply a town center, villagers and wood. Expect a preferred rear location, not exact tiles: the native engine can expand its placement search.\n3. Observation: place player-2 archers initially outside sight, reveal them, then remove sight. A positive chat report must follow actual sighting; allow the documented short memory window. This probe never explores by itself.\n4. Control: give player 1 eight archers in a small controlled scenario; they should move toward map center. This is a command probe, not proof of full micro quality or fairness.\n5. Run the full presets separately on Arabia with normal visibility, no cheats, standard resources, Dark Age start, 200 population, normal speed and conquest victory. Select the matching civilization. Use Extreme AI difficulty to keep engine settings fixed. Run both presets against the standard DE AI on five requested seeds in MATCHES.csv; record the actual seed shown by the game. Reuse identical seeds and opponent settings between builds.\n6. Run the disruptions in SCENARIOS.csv in controlled scenarios. Make a baseline save before each intervention. Record what was actually observed, including any unsupported scenario setup, instead of checking a pass based on the editor preview.\n7. Preserve replay/save files, native error text and the exact project JSON. Fill run-record.json and both CSVs; return these with observations. A defeat is not automatically a functional failure. A parser error, forbidden action, stalled recoverable step, repeated ownership conflict or spending violation is a failure.\n\nThe browser decision preview does not simulate DE pathfinding, combat, economy or timing. All native functionality remains UNVERIFIED until these runs are completed and reviewed.\n\nCommand reference: https://airef.github.io/commands/commands-details.html\nDUC guide: https://airef.github.io/resources/articles/enmipho-intro-to-duc.html\n`;
+    `AI WORKSHOP NATIVE TEST KIT
+STATUS: NOT RUN — no game build is certified. Windows acceptance is still required.
+
+START SMALL
+1. Check the ordinary game first. Run an unmodified single-player 1v1 for at least 15 minutes with recording enabled. Save, reload, then open the recording. Record this in BASELINE.csv.
+2. Keep this kit and your results outside the game installation. Keep the exact exported project JSON and matching .ai/.per files. Record the platform, OS version and game build shown by the game.
+3. Find the AI installation location supported by your installed game/platform. Do not assume the Windows location applies to Mac or that an external Steam drive contains user mods. Verify the location through the game and platform documentation; record it. Use unique bot names and preserve existing saves/mods. If no supported AI installation route is available, record BLOCKED and stop at this stage.
+4. Install the paired Workshop Load Probe.ai and .per using that route, then start it through the normal single-player/scenario menus. A missing AI in the selection list suggests a discovery/path problem; an error naming a script line is a parser problem. Save the exact message. The probe should report "Workshop: load probe started." once to its own local chat. If that output cannot be inspected, record the observation limitation; do not infer success from silence.
+
+CAPABILITIES AND PRESETS
+5. Run each remaining probe separately using PROBES.csv. These are tiny command tests, not complete opponents. The probe AI controls player 1; player 2 is the enemy. Set up the scenario through the game's own tools. Placement is a preference: the native engine may expand its search. Record what happened. Stop dependent tests after a failure or unsupported setup, and retain the error/save evidence.
+6. Load each full preset with its matching civilization: Britons, then Portuguese. Use Arabia, standard resources, Dark Age start, 200 population, normal speed, conquest, normal visibility, no cheats and Extreme AI difficulty. First check initialization with no script errors (the load rows in SCENARIOS.csv), then protected progression through Imperial and post-Imperial (late-game rows). Only continue to disruption/match testing once these checks pass.
+7. Run the other SCENARIOS.csv rows in controlled scenarios. Save before each disruption, record its game time and what changed, then observe recovery. Each preset has its own rows; castle-loss applies to Portuguese. Preserve completed research, creator limits and exclusive unit ownership. The ranged scenario includes retreat and regrouping. Repeat separate interventions in separate records; do not combine builder death and foundation loss into one ambiguous result.
+8. Run the five requested Arabia seeds per preset in MATCHES.csv against the standard DE AI. Record the actual seed and all settings, including opponent civilization, difficulty and starting resources. If the requested seed cannot be set, record that limitation. A win/loss is separate from a functional pass/fail. Reuse the actual seeds and settings for comparisons.
+
+RECORD AND RETURN
+For each baseline, probe, scenario or match, copy run-record.json to a uniquely named file such as britons-raid-mac-01.json. Put that filename in the CSV record_file column. Fill runId/testType, platform/OS/build, project/export version and exact files (or hashes), settings, intervention, expected/actual behavior, errors and replay/save paths. Correct template settings to what you actually used; leave irrelevant fields blank. Keep Mac and Windows runs in separate result folders; Mac success does not verify Windows.
+
+Use NOT RUN, PASS, FAIL, BLOCKED or NOT APPLICABLE. PASS needs observed expected behavior. FAIL means an observed defect, such as a parser error, prohibited spending/action, recoverable step that stays stalled, command conflict or adaptation loop. BLOCKED means a prerequisite or scenario setup prevents a meaningful check; explain it. NOT APPLICABLE needs a reason. Unperformed rows start as NOT RUN. Append new rows/records for repeats; preserve the earlier results.
+
+Return the completed CSVs, run records, exact projects/scripts, errors and relevant replays/saves. The browser decision preview is not a game simulation. No native capability is verified by a compiler/build/browser pass alone.
+
+Command reference: https://airef.github.io/commands/commands-index.html
+DUC guide: https://airef.github.io/resources/articles/enmipho-intro-to-duc.html
+Mac platform support: https://www.feralinteractive.com/en/support/mac/ageofempires2/
+`;
   return files;
 }

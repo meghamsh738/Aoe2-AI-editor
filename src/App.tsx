@@ -99,7 +99,8 @@ function LegacyApp({
   async function open(file?: File) {
     if (!file) return;
     try {
-      if (file.size > 100_000) throw new Error("Open a project under 100 KB.");
+      // Detect the version before applying its parser's size limit.
+      if (file.size > 200_000) throw new Error("Open a project under 200 KB.");
       const text = await file.text();
       if (JSON.parse(text)?.schemaVersion === 2) {
         onAdaptive(parseAdaptiveProject(text));

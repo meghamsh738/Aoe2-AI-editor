@@ -277,6 +277,11 @@ export function AdaptiveApp({
                     Choose the matching civilization on Arabia, with standard
                     resources, Dark Age start and 200 population.
                   </p>
+                  <ol>
+                    <li>Download and unzip the bot. Keep its project JSON for future edits.</li>
+                    <li>Open native-test-kit/START-HERE.txt. First check an ordinary single-player game, then the small load probe.</li>
+                    <li>Record each test separately. Mac results do not verify Windows support.</li>
+                  </ol>
                   <div className="inline-actions">
                     <button
                       className="primary"

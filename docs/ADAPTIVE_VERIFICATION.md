@@ -4,7 +4,26 @@ Native DE status: **UNVERIFIED / NOT RUN**. No game build, replay or Windows run
 
 ## Automated and browser evidence
 
-Final checks: `npm test` **43/43 passed**; `npm run build` passed; `npm run test:browser` and `npm run test:adaptive-browser` passed; both preset exports and the standalone kit regenerated successfully. The build emits only the existing upstream Zod annotation warnings.
+### 2026-10-23 pre-native readiness checkpoint
+
+Scope remains Britons and Portuguese, Arabia-style land 1v1, standard resources, Dark Age start and 200 population. Both full-age presets, compiler and editor exist; native loading, progression, placement, adaptation and micro remain unverified. Public Pages remains release `a5e9bb7`; these readiness changes are on `codex/pre-native-readiness`, pending review/approval for merge and deployment.
+
+- Fixed version-2 imports between 100 KB and 200 KB through the version-1 editor. Routing now allows the v2 parser to apply its limit; the v1 parser retains its 100 KB limit. Invalid/future files do not replace the saved draft, and the original v1 project remains separate.
+- Added a minimal load probe, baseline/probe CSVs and separate scenario rows per applicable preset. The existing four capability probes and ten seed matches remain. All native records start NOT RUN. A separate run record captures platform/OS/build, exact project/script, settings, intervention, expected/actual behavior, errors and replay/save references. Match outcome is separate from functional status.
+- Added a short export checklist and staged instructions: unmodified game, load probe, capabilities, preset loading/progression, disruptions, seed matches. The guide requires a verified platform-specific AI location and separates Mac from Windows evidence. No installer or game control was added.
+- Existing native compiler rules and preset projects are unchanged by this pass. Static inspection does not establish their runtime correctness.
+
+Checks: `npm test` **44/44 passed**; `npm run build:pages` passed with the same two non-fatal Zod annotation warnings; both browser scripts passed on `http://127.0.0.1:4173/Aoe2-AI-editor/`. Runtime: Node 26.2.0, npm 11.13.0, headless Chromium via Playwright 1.63.0. Browser plugin not available; the existing Playwright workflows ran in the background.
+
+The extended browser regression opens a 120 KB v2 project from the legacy editor, verifies undo/redo and reload, saves matching JSON, rejects an oversized v1 file and a future version, and preserves the v1 draft. Both workflows exercise actual downloads, invalid input, history, saved-draft recovery and mobile navigation. Desktop 1536x1024, legacy 1280x800 and mobile 390x844 checks passed with no document overflow or console/page errors. The export checklist and mobile layout were visually inspected.
+
+`npm run export:adaptive` regenerated both bot ZIPs and the standalone kit. A separate archive inspection compared every filename and decoded file against the current compiler/kit output and the adjacent project JSON: both 21-file bot ZIPs and the 16-file standalone kit matched. The exported native scripts, projects and source maps also matched release `a5e9bb7` byte for byte. Evidence and SHA-256 hashes are in `/Users/meghamsh/Documents/Codex/2026-09-19/new-chat-2/outputs/pre-native-readiness-evidence/export-integrity.json`; screenshots are in that folder's `adaptive/` and `legacy/` subfolders (outside the repository). The public Pages route and its existing JS/CSS returned HTTP 200 on 2026-10-23; no new deployment was made.
+
+An independent read-only review found no blocking issues in import routing, saved-v1 preservation, kit records/probes/instructions, export onboarding or browser regressions. This review did not run the game and supplies no native acceptance evidence.
+
+### Earlier adaptive implementation evidence
+
+At the earlier adaptive implementation checkpoint: `npm test` **43/43 passed**; `npm run build` passed; both browser workflows passed; both preset exports and the standalone kit regenerated successfully.
 
 The automated suite covers version parsing, original-project preservation, actual exported source maps, observed versus queued completion, memory resets, trigger timing, spending ceilings, cooldown re-entry, stale sightings, capped response requests, placement retries, inactive alternatives, catalog availability and native command signatures. The signature checks include the independent Windows probes.
 
@@ -12,7 +31,7 @@ The real Chromium workflows exercise both presets, guided and advanced edits, ac
 
 Screenshot evidence is under `design-review/builds/adaptive-editor/`; the `legacy` subfolder records the preserved version-1 editor in this build. Desktop, placement and full mobile screenshots were visually inspected. The forest navigation and white editor panels extend the original design, with phase tabs, response cards, policy diagrams and a persistent native-status notice. The inspector follows the editor at narrower widths. Mobile navigation scrolls horizontally; the document itself does not overflow.
 
-## Final review
+## Earlier adaptive implementation review
 
 A separate reviewer checked the editor/persistence and native policy logic. Findings fixed during this milestone include unsaved dropdown defaults, diagnostic jumps, unavailable milestone choices, non-expiring cooldown state, response ordering, repeated placement deadlines, denied production/research progression, and inactive pivot branches. Presets were also checked for prerequisite buildings and available support units.
 
@@ -20,6 +39,6 @@ The preview interprets the same native rule representation used by the emitter. 
 
 ## Manual acceptance still required
 
-Use `examples/adaptive/Workshop-Windows-Test-Kit.zip`, then each preset ZIP. Run independent probes first, the ten recorded-seed matches second, and the controlled disruptions. Record build/settings/actual seed, project, script errors, save/replay and observed recovery. A loss is not automatically a functional failure; prohibited spending/actions, parser errors, persistent stalls or competing commands are failures. Unsupported strict geometry and advanced micro remain explicit limitations in the design notes.
+Use `examples/adaptive/Workshop-Windows-Test-Kit.zip` or the kit inside either preset ZIP. Read START-HERE.txt and run the staged baseline, load, capability, preset progression, disruption and ten requested-seed checks. Record each platform separately. Save the exact build/settings/actual seed, project/script, error text, save/replay and observed recovery. A loss is not automatically a functional failure; prohibited spending/actions, parser errors, persistent recoverable stalls or competing commands are failures. If a supported AI install route or scenario setup cannot be established, record BLOCKED with the exact reason rather than assuming success. Unsupported strict geometry and advanced micro remain explicit limitations in the design notes. No game was launched, controlled or modified in the readiness pass.
 
 Focused re-review confirmed the five repaired native paths and priority/predecessor ordering. The remaining conditional question about Portuguese Imperial prerequisites is resolved by the [official World's Edge advancement guide](https://www.ageofempires.com/learn-to-play/advancing-to-the-next-age-xbox/): one Castle is an alternative to two Castle-age buildings. Portuguese already builds its Castle before requesting Imperial. No additional prerequisite building is needed for that preset.

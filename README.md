@@ -39,7 +39,7 @@ The original version-1 editor and compiler remain available. Upgrade explicitly 
 
 `npm test` checks model validation, native command signatures, shared-rule previews, recovery and export contracts. With the development server running, `npm run test:browser` and `npm run test:adaptive-browser` check real browser editing, downloads, imports, history, recovery and responsive layouts.
 
-The generated Windows kit contains independent command probes, controlled disruption instructions and five requested Arabia seeds per preset. Return the exact game build, exported project, settings and actual seed, script errors, replay/save and observations. All native results start as NOT RUN; there is no claimed win-rate target.
+Unzip the bot and start with `native-test-kit/START-HERE.txt`. Check an ordinary single-player game first, then the minimal load probe, four capability probes, both presets and the controlled disruptions. The kit retains five requested Arabia seeds per preset. Each test gets its own run record with platform/OS/game build, exact project/script, settings and actual seed, errors, replay/save and observations. All results start as NOT RUN; a win/loss is separate from a functional pass/fail. Keep Mac and Windows results separate: Mac success does not establish Windows compatibility. Verify the supported AI installation location for the installed platform before copying any files; this kit does not install or control the game.
 
 ## Code and evidence
 

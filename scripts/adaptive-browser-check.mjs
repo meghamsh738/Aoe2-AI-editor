@@ -69,6 +69,9 @@ try {
     /UNVERIFIED|unverified|NOT.*(PERFORMED|TESTED)/i,
   );
   assert.ok(files["native-test-kit/MATCHES.csv"]);
+  assert.ok(files["native-test-kit/BASELINE.csv"]);
+  assert.ok(files["native-test-kit/PROBES.csv"]);
+  assert.ok(files["native-test-kit/probes/Workshop Load Probe.per"]);
   await page.getByRole("button", { name: "Build order", exact: true }).click();
   await page.getByLabel("Food", { exact: true }).first().fill("10");
   await expect(page.getByRole("alert")).toBeVisible();
@@ -164,6 +167,40 @@ try {
   await expect(page.getByLabel("Villager target", { exact: true })).toHaveValue(
     "23",
   );
+  // Either editor can open a supported v2 file larger than the v1 limit.
+  const largeProject = { ...saved, name: "Large imported strategy" };
+  const largeJson = JSON.stringify(largeProject).padEnd(120_000, " ");
+  await page.getByRole("button", { name: "Overview", exact: true }).click();
+  await page.getByRole("button", { name: "Open version-1 editor", exact: true }).click();
+  await page.getByLabel("Open project file").setInputFiles({
+    name: "large-v2.json", mimeType: "application/json", buffer: Buffer.from(largeJson),
+  });
+  await expect(page.getByLabel("Bot name")).toHaveValue("Large imported strategy");
+  assert.equal(await page.evaluate(() => localStorage.getItem("ai-workshop.project.v1")), originalLegacy);
+  await page.getByRole("button", { name: "Undo", exact: true }).click();
+  await page.getByRole("button", { name: "Build order", exact: true }).click();
+  await expect(page.getByLabel("Villager target", { exact: true })).toHaveValue("23");
+  await page.getByRole("button", { name: "Redo", exact: true }).click();
+  await page.reload();
+  await expect(page.getByLabel("Bot name")).toHaveValue("Large imported strategy");
+  const savedLargeWait = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Save project", exact: true }).click();
+  assert.deepEqual(JSON.parse(await fs.readFile(await (await savedLargeWait).path(), "utf8")), largeProject);
+  await page.getByRole("button", { name: "Overview", exact: true }).click();
+  await page.getByRole("button", { name: "Open version-1 editor", exact: true }).click();
+  // Routing must not accidentally increase the legacy parser's own limit.
+  await page.getByLabel("Open project file").setInputFiles({
+    name: "large-v1.json", mimeType: "application/json", buffer: Buffer.from(originalLegacy.padEnd(120_000, " ")),
+  });
+  await expect(page.getByRole("status")).toContainText("too large");
+  assert.equal(await page.evaluate(() => localStorage.getItem("ai-workshop.project.v1")), originalLegacy);
+  await page.getByLabel("Open project file").setInputFiles({
+    name: "future-v3.json", mimeType: "application/json", buffer: Buffer.from('{"schemaVersion":3}'),
+  });
+  await expect(page.getByRole("status")).toContainText("schemaVersion");
+  await page.getByLabel("Open project file").setInputFiles({
+    name: "large-v2.json", mimeType: "application/json", buffer: Buffer.from(largeJson),
+  });
   await page.setViewportSize({ width: 390, height: 844 });
   for (const section of [
     "Overview",
