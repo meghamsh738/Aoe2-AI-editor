@@ -2,6 +2,8 @@
 
 Current review build: **Pre-native readiness**, implementation commit `fa29742`, branch `codex/pre-native-readiness`. Import repair and staged manual test preparation are checked and ready for review; merge/deployment approval remains open. Native DE behaviour remains **UNVERIFIED**.
 
+Current first-game download (30 October 2026): [`AI-Workshop-First-Test.zip`](../examples/first-test/AI-Workshop-First-Test.zip), built from readiness source `8caa310`, with [Mac setup and testing instructions](FIRST_GAME_TEST.md). It includes dated Britons/Portuguese file pairs and an optional load probe. The native rule bodies are unchanged. Archive structure, companion files, project imports/recompilation, source maps and hashes pass; 44 tests and the Pages build pass. Actual game loading/results await the user's test. Recreate with `npm run export:first-test`; the exporter preserves a prior different packet under `examples/first-test/Archive/` before replacing the stable download.
+
 Published build: **Adaptive Workshop v2 Pages showcase**, merge commit `a5e9bb7` on `codex/ai-workshop-mvp`. [PR #1](https://github.com/meghamsh738/Aoe2-AI-editor/pull/1) was merged on 2026-10-04 and [Pages deployment succeeded](https://github.com/meghamsh738/Aoe2-AI-editor/actions/runs/37238084648). The [public editor](https://meghamsh738.github.io/Aoe2-AI-editor/) and its JS/CSS returned HTTP 200 on 2026-10-23. The separate Sites showcase stays owner-only. No new deployment was made in the readiness pass.
 
 | Version | Branch / implementation commit | Status | Evidence | Validation |

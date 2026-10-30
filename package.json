@@ -13,6 +13,7 @@
     "export:sample": "tsx scripts/export-sample.ts",
     "test:browser": "node scripts/browser-check.mjs",
     "export:adaptive": "tsx scripts/export-adaptive.ts",
+    "export:first-test": "tsx scripts/export-first-test.ts",
     "test:adaptive-browser": "node scripts/adaptive-browser-check.mjs"
   },
   "dependencies": {
